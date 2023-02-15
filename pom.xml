@@ -4,8 +4,8 @@
     <artifactId>junior</artifactId>
     <packaging>jar</packaging>
     <version>2.0</version>
-    <name>tracker</name>
-    <url>http://job4j.ru/</url>
+    <name>learning</name>
+    <url>http://publicSbk.ru/</url>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
