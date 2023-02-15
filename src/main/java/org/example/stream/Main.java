@@ -136,7 +136,7 @@ public class Main {
         oldestPredator.ifPresent(System.out::println);
     }
 
-    private static List<Animal> getAnimals() {
+    public static List<Animal> getAnimals() {
         return List.of(
                 new Animal("Слон", 20, Classification.HERBIVORE),
                 new Animal("Лев", 10, Classification.PREDATOR),
