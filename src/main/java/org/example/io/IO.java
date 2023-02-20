@@ -53,25 +53,27 @@ public class IO {
             e.printStackTrace();
         }
     }
+
     /**
      * Write text in to the file
      *
      * @param pathTo - path where write to
      */
-    public static void textWriter(String text ,String pathTo) {
-        try(var out = new FileOutputStream(pathTo)) {
+    public static void textWriter(String text, String pathTo) {
+        try (var out = new FileOutputStream(pathTo)) {
             out.write(text.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     /**
      * Read text
      *
      * @param pathFrom - path where read from
      */
     public static void textReader(String pathFrom) {
-        try(var reader = new FileReader(pathFrom)) {
+        try (var reader = new FileReader(pathFrom)) {
             var text = new StringBuffer();
             int c;
             while ((c = reader.read()) != -1) {
@@ -83,10 +85,38 @@ public class IO {
         }
     }
 
+    /**
+     * Return text from file
+     * @param pathFrom - path where read from
+     * @return StringBuffer
+     */
+    public static String textToString(String pathFrom) {
+        try (var reader = new FileReader(pathFrom)) {
+            var text = new StringBuffer();
+            int c;
+            while ((c = reader.read()) != -1) {
+                text.append((char) c);
+            }
+            return text.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Convert byte input stream in to the stream of char UTF-8
+     *
+     * @param pathFrom - path where read from
+     */
     public static void encoder(String path) {
-        try (FileInputStream input = new FileInputStream(path);) {
-
-
+        try (var input = new FileInputStream(path);
+             Reader ir = new InputStreamReader(input, "utf-8")) { // encoder
+            BufferedReader br = new BufferedReader(ir);
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,9 +127,8 @@ public class IO {
                 "Два важных правила запомни для начала:\n" +
                 "Ты лучше голодай, чем что попало есть,\n" +
                 "И лучше будь один, чем вместе с кем попало.";
-        textWriter(rubai, "data/testWriter.txt");
         String pathFrom = "data/testWriter.txt";
-        textReader(pathFrom);
+
     }
 }
 
