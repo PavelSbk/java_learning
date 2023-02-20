@@ -6,14 +6,14 @@ public class Format {
 
     /**
      * String.format() - Одним из самых удобных способов построения сложных строк
-     *
+     * <p>
      * Разница между format() и printf():
      * - format() выполняет форматирование и возвращает новую строку
      * - printf() выполняет форматирование и выводит данные в консоль без сохранения
-     *
+     * <p>
      * Полезные ссылки:
      * https://habr.com/ru/company/otus/blog/592585/
-     *
+     * <p>
      * Документация JDK19:
      * https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/Formatter.html
      */
@@ -54,7 +54,7 @@ public class Format {
          * %c - спецификаторы, который задаёт любой символ из таблицы Юникод
          * в виде oct, dec, hec или char.
          */
-        System.out.println(String.format("Hi! I'm %c%c%c%c",0120, 97, 0x75, 'l'));
+        System.out.println(String.format("Hi! I'm %c%c%c%c", 0120, 97, 0x75, 'l'));
         /**
          * %n - спецификатор разделителя строк.
          */
