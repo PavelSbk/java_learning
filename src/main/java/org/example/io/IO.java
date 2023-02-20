@@ -1,9 +1,6 @@
 package org.example.io;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * IO java предназначено для чтения и записи:
@@ -56,11 +53,53 @@ public class IO {
             e.printStackTrace();
         }
     }
+    /**
+     * Write text in to the file
+     *
+     * @param pathTo - path where write to
+     */
+    public static void textWriter(String text ,String pathTo) {
+        try(var out = new FileOutputStream(pathTo)) {
+            out.write(text.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Read text
+     *
+     * @param pathFrom - path where read from
+     */
+    public static void textReader(String pathFrom) {
+        try(var reader = new FileReader(pathFrom)) {
+            var text = new StringBuffer();
+            int c;
+            while ((c = reader.read()) != -1) {
+                text.append((char) c);
+            }
+            System.out.println(text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void encoder(String path) {
+        try (FileInputStream input = new FileInputStream(path);) {
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
-        String pathFrom = "data/Java IO.png";
-        String pathTo = "data/testBufferCopyMtd.png";
-        bufferCopy(pathFrom, pathTo);
+        String rubai = "Чтоб мудро жизнь прожить, знать надобно немало,\n" +
+                "Два важных правила запомни для начала:\n" +
+                "Ты лучше голодай, чем что попало есть,\n" +
+                "И лучше будь один, чем вместе с кем попало.";
+        textWriter(rubai, "data/testWriter.txt");
+        String pathFrom = "data/testWriter.txt";
+        textReader(pathFrom);
     }
 }
 
