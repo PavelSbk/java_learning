@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="java_topics_analysis" />
         <module name="java_learning" />
+        <module name="junior" />
       </profile>
     </annotationProcessing>
   </component>

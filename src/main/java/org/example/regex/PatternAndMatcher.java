@@ -137,16 +137,17 @@ public class PatternAndMatcher {
     public static void main(String[] args) {
         String jack = "Jack is a boy.";
         String cat = "About cats and dogs and maybe about a catfish a little.";
-        String string = "Hello 21.01.23 i've sent you a file to joe@gmail.com\n" +
+        String string = "Hello 21.01.23 i've sent you a file to joe@gmail.com\n"
+                +
                 "so we can keep in touch. My e-mail is buba@yandex.ru 22-02-2023";
-        String error = "200 10:56:01\n" +
-                "500 10:57:01\n" +
-                "400 10:58:01\n" +
-                "500 10:58:35\n" +
-                "300 10:59:01\n" +
-                "500 11:01:02\n" +
-                "200 11:02:02\n" +
-                "300 11:03:01";
+        String error = "200 10:56:01\n"
+                + "500 10:57:01\n"
+                + "400 10:58:01\n"
+                + "500 10:58:35\n"
+                + "300 10:59:01\n"
+                + "500 11:01:02\n"
+                + "200 11:02:02\n"
+                + "300 11:03:01";
         findDate(string);
     }
 }
